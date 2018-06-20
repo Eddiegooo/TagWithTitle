@@ -12,15 +12,30 @@
 
 @interface ViewController ()
 
+/*!
+ *  @brief 最底下容器Label
+ */
 @property (nonatomic, strong) UILabel *backGorundLabel;
-
+/*!
+ *  @brief 标签
+ */
 @property (nonatomic, strong) UILabel *preLabel;
-
+/*!
+ *  @brief 标签一起的标题
+ */
 @property (nonatomic, strong) UILabel *titleLabel;
 
+/*!
+ *  @brief 标签下面的标题
+ */
 @property (nonatomic, strong) UILabel *subLabel;
-
+/*!
+ *  @brief 标签内筒
+ */
 @property (nonatomic, strong) NSString *preString;
+/*!
+ *  @brief 标题
+ */
 @property (nonatomic, strong) NSString *titleString;
 
 
@@ -32,7 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.preString = @"Clearance";
-    self.titleString = @"this is title , but the title is very xian在我又在改了哈， 就是改改改改 等级考试的富家大室";
+    self.titleString = @"this is title , but the title is very xian在我又在改了哈， 就是改改改改 等级考试的富家大室jkfdskfjdskfjjjkfh jfdskfjds fjsdkf ";
     
     
     [self.view addSubview:self.backGorundLabel];
@@ -46,6 +61,11 @@
 
 - (void)fillTheContents {
     self.preLabel.text = self.preString;
+    
+    /*!
+     *  @brief 方法一： 使用首行缩进方法 这个方法比较简单也更优
+     */
+//    开始
     self.titleLabel.text = self.titleString;
     
     //标签宽度，即缩进距离。 这里为了更好的展示，加了10的偏移量
@@ -57,7 +77,11 @@
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:self.titleString attributes:attDict];
     //设置标题
     self.titleLabel.attributedText = string;
+//    结束
     
+    /*!
+     *  @brief 方法二： 使用计算每行字符串多少，自定义布局
+     */
     [self resetViewsConstraints];
 }
 
